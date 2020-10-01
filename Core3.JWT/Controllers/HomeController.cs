@@ -36,12 +36,23 @@ namespace Core3.JWT.Controllers
         [HttpGet]
         [Route("anonymous")]
         [AllowAnonymous]
-        public string Anonymous() => "Anônimo";
+        public string Anonymous() 
+        {
+            return "You are Anonymous";
+        }
 
         [HttpGet]
         [Route("authenticated")]
         [Authorize]
         public string Authenticated() => String.Format("Authenticated - {0}", User.Identity.Name);
+
+        [HttpGet]
+        [Route("tester")]
+        [Authorize(Roles = "tester")]
+        public string Tester()
+        {
+            return "You are a Tester";
+        }
 
         [HttpGet]
         [Route("employee")]
@@ -52,5 +63,7 @@ namespace Core3.JWT.Controllers
         [Route("manager")]
         [Authorize(Roles = "manager")]
         public string Manager() => "Manager";
+
+        
     }
 }
