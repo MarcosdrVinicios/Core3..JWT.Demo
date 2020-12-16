@@ -15,7 +15,7 @@ namespace Core3.JWT.Repositories
             users.Add(new User { Id = 1, Username = "goku", Password = "goku", Role = "manager" });
             users.Add(new User { Id = 2, Username = "vejeta", Password = "vejeta", Role = "employee" });
             users.Add(new User { Id = 3, Username = "kuririn", Password = "kuririn", Role = "tester" });
-            return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password).FirstOrDefault();
+            return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == password).FirstOrDefault();
         }
 
     }
